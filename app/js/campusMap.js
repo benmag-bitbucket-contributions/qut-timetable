@@ -29,12 +29,37 @@ let campusMap = {
         geodata.features = geodata.features.filter(feature => (feature.properties.name !== null ? 
             feature.properties.name.includes("Block") || feature.properties.name.length === 1 :
             false))
+        return geodata
+    },
+    //
+    addClassMarkers: (geodata, classdata) => {
+        geodata.features = geodata.features.map(feature => {
+            for (item in classdata){
+                if (classdata[item].block == feature.properties.name) {
+                    feature.properties.hasClass = true
+                    console.log(feature)
+                }
+            }
+            return feature
+        })
+        return geodata
     },
     //
     renderGEOJSON: (campus) => {
         campusMap.retrieveMap(campus, "multipolygons", (data)=>{
-            console.log(campusMap.extractQUT(data));
-            L.geoJSON(data).addTo(campusMap.map);
+            L.geoJSON(campusMap.addClassMarkers(campusMap.extractQUT(data), Class.list()), {
+                style: (feature) => {
+                    if (feature.properties.hasClass){
+                        return {
+                            color: "#ef5b25"
+                        }
+                    } else {
+                        return {
+                            color: "#0062ff"
+                        }
+                    }
+                }
+            }).addTo(campusMap.map);
         })
     },
     setup: () => {
@@ -49,3 +74,5 @@ let campusMap = {
 campusMap.setup()
 campusMap.render("GP")
 campusMap.renderGEOJSON("GP")
+
+// you need to change it so all the features are saved to the trhing and then make the setup one add the features , so you can remove itrems

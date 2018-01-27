@@ -236,5 +236,21 @@ let Class = {
                     cal.fullCalendar("updateEvent", events[0]);
             }
         }
+    },
+    //
+    list: () => {
+        let classes = [],
+            elements = $(".fc-title");
+        for (let i=0; i<elements.length; i++){
+            let raw = elements[i].innerText.split("\n")
+            classes.push({
+                unit: raw[0],
+                type: raw[1].split(" ")[0],
+                campus: raw[1].split(" ")[1],
+                block: raw[1].split(" ")[2].charAt(0),
+                description: raw[3].trim()
+            })
+        }
+        return classes;
     }
 }
