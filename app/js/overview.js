@@ -78,7 +78,7 @@ function generateClassOutput() {
     // TODO Convert 12-hour to 24-hour time format
     var cardText = crel("p", {
       "class": "card-text"
-    }, getClassOverview(selectedClasses[i]));
+    }, Class.getOverview(selectedClasses[i]));
     typeBlock.append(cardText);
   }
 }
@@ -88,8 +88,7 @@ function generateClassOutput() {
  */
 function updateClassOutput(classElement) {
   // Get the card to modify
-  var unitElement = ($(classElement).parents().eq(2))[0];
-  var unitID = unitElement.getAttribute("unitID");
+  const unitID = Class.getUnitID(classElement);
   var unitOverview = document.getElementById("unitOverview");
   var unitCard = $(unitOverview).find(".card." + unitID);
 
@@ -106,7 +105,7 @@ function updateClassOutput(classElement) {
     // Get the class-text
     var cardText = crel("p", {
       "class": "card-text"
-    }, getClassOverview(selectedClasses[i]));
+    }, Class.getOverview(selectedClasses[i]));
 
     classTextList[i] = cardText;
   }
