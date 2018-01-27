@@ -26,6 +26,9 @@
       "js": ["lib/jquery/dist/jquery.min.js", "lib/crel/crel.min.js", "js/estudent.js", "js/extract.js"]
     }
   ],
+  "web_accessible_resources": [
+    "data/*.geojson"
+  ],
   "icons": {
     "16": "img/icon16.png",
     "48": "img/icon48.png",

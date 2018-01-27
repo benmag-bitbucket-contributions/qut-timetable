@@ -12,6 +12,7 @@
     "jquery-scrollLock": "^3.0.0",
     "respond": "^1.4.2",
     "tether": "^1.4.0",
-    "salvattore": "1.0.9"
+    "salvattore": "1.0.9",
+    "leaflet": "1.3.1"
   }
 }

@@ -25,6 +25,7 @@
   <link href="lib/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" type="text/css" />
   <!-- <link href="lib/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" type="text/css" media="print" /> -->
   <link href="lib/jquery-confirm2/dist/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="lib/leaflet/dist/leaflet.css" type="text/css" />
 
   <!-- Custom CSS -->
   <link href="css/loader.css" rel="stylesheet" type="text/css" />
@@ -32,6 +33,7 @@
   <link href="css/scrollbar.css" rel="stylesheet" type="text/css" />
   <link href="css/fullcalendar.css" rel="stylesheet" type="text/css" />
   <link href="css/events.css" rel="stylesheet" type="text/css" />
+  <link href="css/campusMap.css" rel="stylesheet" type="text/css" />
   <link href="css/main.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -99,7 +101,7 @@
           </button>
           <!-- Placeholder for helpful hints text -->
         </div>
-
+          
         <!-- Controls -->
         <div class="row mb-3">
           <div class="col">
@@ -110,6 +112,10 @@
             <a href="https://qutvirtual3.qut.edu.au/qv/ttab_student_p.show" target="_blank" rel="noopener noreferrer" class="btn btn-primary float-right" id="view-enrolled">View Enrolled Units</a>
           </div>
         </div>
+          
+          
+        <!-- Campus Map -->
+        <div id="campusMap" class="alert alert-info"></div>
 
         <!-- Donation Info -->
         <div class="alert alert-warning alert-dismissible fade show hidden-print" role="alert">
@@ -126,10 +132,11 @@
 
         <!-- Selected Class Output Placeholder -->
         <div id="unitOverview" data-columns></div>
-
+        
       </div>
+        
     </main>
-
+      
   </div>
   <!-- /#wrapper -->
 
@@ -142,6 +149,7 @@
   <script src="lib/crel/crel.min.js"></script>
   <script src="lib/date.js/build/date.js"></script>
   <script src="lib/salvattore/dist/salvattore.js"></script>
+  <script src="lib/leaflet/dist/leaflet.js"s></script>
 
   <!-- Extensions -->
   <script src="lib/jquery-confirm2/dist/jquery-confirm.min.js"></script>
@@ -156,6 +164,7 @@
   <script src="js/search.js"></script>
   <script src="js/sidebar.js"></script>
   <script src="js/hints.js"></script>
+  <script src="js/campusMap.js"></script>
   <script src="js/main.js"></script>
 </body>
 
